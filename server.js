@@ -1,27 +1,24 @@
+//dependencies
 const express = require("express");
-const { v1: uuidv1 } = require('uuid');
 
+//set express to a variable
 const app = express();
+
+//port for the server to listen on
 const PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({extended: true}));
+//data parsing
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//allows access to public folder
 app.use(express.static("public"));
 
-app.post("/api/notes", (req,res) => {
-    const usrNote = req.body;
+//requiring routes
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
-    usrNote.id = uuidv1();
-
-})
-
-app.delete("/api/notes/:id", (req,res) => {
-
-
-})
-
-
-
+//server listener
 app.listen(PORT, () =>{
     console.log(`App listening on PORT: http://localhost:${PORT}`);
 });
