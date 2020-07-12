@@ -1,9 +1,15 @@
 const { v1: uuidv1 } = require('uuid');
 
-app.post("/api/notes", (req,res) => {
-    const usrNote = req.body;
 
-    usrNote.id = uuidv1();
+
+app.post("/api/notes", (req,res) => {
+    let noteID = uuidv1();
+    let usrNote = {
+        title: req.body.title,
+        text: req.body.text,
+        id: noteID
+    }
+    
 
 })
 
