@@ -1,9 +1,12 @@
 const fs = require("fs");
 const { v1: uuidv1 } = require("uuid");
 
+
 module.exports = (app) => {
   app.get("/api/notes", (req, res) => {
-    const noteData = JSON.parse(fs.readFileSync(`${__dirname}/../db/db.json`, "utf8"));
+    const noteData = JSON.parse(
+      fs.readFileSync(`${__dirname}/../db/db.json`, "utf8")
+    );
     res.json(noteData);
   });
 
@@ -18,9 +21,11 @@ module.exports = (app) => {
   });
 
   app.delete("/api/notes/:id", (req, res) => {
-    let usrNote = req.params.id;
-    fs.writeFile("./db/db.json", JSON.stringify(db), function () {
-      res.json(db);
+    let noteData = JSON.parse(fs.readFileSync(`${__dirname}/../db/db.json`, "utf8"));
+    const deleteNotes = noteData.filter( function (usrNote) {
+      return usrNote.id !== req.params.id;
     });
+    fs.writeFileSync(`${__dirname}/../db/db.json`, JSON.stringify(deleteNotes));
+    res.json(deleteNotes)
   });
 };
