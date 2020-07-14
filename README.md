@@ -2,8 +2,9 @@
 
   ![badge](https://img.shields.io/badge/License-MIT-blue)
 
-  In this application, the user will be able to write, save, and delete notes they create. 
+  In this application, the user will be able to write, save, and delete notes they create. This application is created using express. We had to use ``` app.get ``` to fetch data, ``` app.post ``` for the input data to be written to the page, and lastly ``` app.delete ``` to delete the stored note. 
 
+  Link to deployed site: https://wleondike-note-taker.herokuapp.com <br>
   GitHub: https://github.com/WLeondike
   
 
@@ -17,7 +18,7 @@
 
   ## Installation
   
-  > ``` npm i express ```
+  > ``` npm i express ``` <br> ``` npm i uuid ```
   
   
   ## Credits
@@ -27,8 +28,11 @@
 
   ## Screenshots
 
-  <img src ="" width="400">
+  <img src =".\public\assets\images\noteEmpty.png" width="400"> <br> 
+  
+  <img src =".\public\assets\images\savedNotes.png" width="400"> <br>
 
+  <img src =".\public\assets\images\deletedNotes.png" width="400">
 
   ## License
 
